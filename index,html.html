@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وكالة Genix - تصميم المواقع الإلكترونية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #003366;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0066cc 0%, #4169e1 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.05) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #003366;
+            text-shadow: 0 4px 8px rgba(0, 51, 102, 0.1);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #0066cc;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #0066cc, #4169e1);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #0066cc, #4169e1);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 102, 204, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.2);
+            border-color: #0066cc;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #0066cc, #4169e1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fbff 0%, #e6f3ff 100%);
+        }
+
+        .about-content {
+            display: block;
+            text-align: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image-placeholder {
+            width: 400px;
+            height: 300px;
+            background: linear-gradient(45deg, #0066cc, #4169e1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #add8e6;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image-placeholder {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>GENIX</h1>
+            <p>We specialize in designing and developing exceptional websites</p>
+            <a href="https://wa.me/+201032174519" class="cta-button" target="_blank">ابدأ مشروعك الآن</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا المتميزة</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>تصميم واجهات المستخدم</h3>
+                    <p>تصميم واجهات مستخدم جذابة وسهلة الاستخدام تتناسب مع هوية علامتك التجارية وتوفر تجربة مستخدم استثنائية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>تطوير المواقع</h3>
+                    <p>تطوير مواقع إلكترونية متجاوبة وسريعة باستخدام أحدث التقنيات لضمان أداء مثالي على جميع الأجهزة.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>المتاجر الإلكترونية</h3>
+                    <p>إنشاء متاجر إلكترونية احترافية مع أنظمة دفع آمنة وإدارة المخزون لتعزيز مبيعاتك عبر الإنترنت.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>التصميم المتجاوب</h3>
+                    <p>تصميم مواقع تعمل بشكل مثالي على جميع الأجهزة من الكمبيوتر المكتبي إلى الهاتف المحمول.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>من نحن</h2>
+                    <p>وكالة Genix هي شركة رائدة في مجال تصميم وتطوير المواقع الإلكترونية، نتميز بخبرتنا الواسعة في إنشاء حلول رقمية مبتكرة ومتطورة.</p>
+                    <p>نحن نؤمن بأن كل مشروع له قصة فريدة، ولذلك نعمل بشكل وثيق مع عملائنا لفهم احتياجاتهم وتحويل أفكارهم إلى واقع رقمي يحقق أهدافهم.</p>
+                    <p>فريقنا المتخصص يجمع بين الخبرة التقنية والإبداع التصميمي لتقديم مواقع إلكترونية استثنائية تتفوق على توقعات العملاء.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>معلومات الاتصال</h3>
+                    <p>📧 genixsite1@gmail.com</p>
+                    <p>📞 <a href="https://wa.me/+201032174519" target="_blank">WhatsApp</a></p>
+                    <p>📍 بورسعيد، مصر</p>
+                </div>
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <a href="#services">تصميم المواقع</a>
+                    <a href="#services">تطوير التطبيقات</a>
+                    <a href="#services">المتاجر الإلكترونية</a>
+                    <a href="#services">التصميم المتجاوب</a>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط مفيدة</h3>
+                    <a href="#home">الرئيسية</a>
+                    <a href="#services">خدماتنا</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#contact">اتصل بنا</a>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <a href="https://www.facebook.com/share/19ETdHZW9X/?mibextid=wwXIfr" target="_blank">فيسبوك</a>
+                    <a href="https://x.com/GenixSite?t=j8G9eOiHmoRpGXQd_7Yzmw&s=09" target="_blank">تويتر</a>
+                    <a href="https://www.instagram.com/genix.site?igsh=MXBhdGMwamlkanI3dw%3D%3D&utm_source=qr" target="_blank">إنستجرام</a>
+                    <a href="https://wa.me/+201032174519" target="_blank">واتساب</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Genix. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // إضافة بعض التفاعلات البسيطة
+        document.addEventListener('DOMContentLoaded', function() {
+            // تأثير التمرير السلس
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // إضافة تأثير عند التمرير
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 4px 25px rgba(0, 102, 204, 0.5)';
+                } else {
+                    header.style.boxShadow = '0 4px 15px rgba(0, 102, 204, 0.3)';
+                }
+            });
+
+            // تأثير ظهور العناصر عند التمرير
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
